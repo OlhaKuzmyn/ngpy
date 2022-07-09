@@ -10,6 +10,7 @@ import { AutoParksComponent } from './components/auto-parks/auto-parks.component
 import { CarsComponent } from './components/cars/cars.component';
 import {CarsAutoparksService} from "./services";
 import { AutoParkComponent } from './components/auto-park/auto-park.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { AutoParkComponent } from './components/auto-park/auto-park.component';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule
   ],
   providers: [
     CarsAutoparksService

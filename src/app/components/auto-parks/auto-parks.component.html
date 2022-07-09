@@ -1,1 +1,31 @@
+<h1>Auto Parks</h1>
+<form [formGroup]="form">Add Auto Park:
+  <div><label>Name: <input type="text" formControlName="name"></label></div>
+  <button (click)="save()">{{autoParkForUpdate ? 'update' : 'save'}}</button>
+</form>
 
+
+
+<div *ngFor="let autoPark of autoParks">
+<p>ID: {{autoPark.id}}</p>
+<p>Name: {{autoPark.name}}</p>
+<p>Cars:</p>
+<div *ngFor="let car of autoPark.cars">
+  <p>ID: {{car.id}}</p>
+  <p>Brand: {{car.brand}}</p>
+  <p>Price: {{car.price}}</p>
+  <p>Year: {{car.year}}</p>
+</div>
+  <button (click)="update(autoPark)">update</button>
+  <button (click)="delete(autoPark.id)">delete</button>
+  <form [formGroup]="carForm">Add Car to AutoPark
+    <div><label>brand: <input type="text" formControlName="brand"></label></div>
+    <div><label>price: <input type="number" formControlName="price"></label></div>
+    <div><label>Year: <input type="number" formControlName="year"></label></div>
+    <button (click)="addCar(autoPark.id)">Add car</button>
+</form>
+
+<hr/>
+</div>
+
+<!--<app-auto-park *ngFor="let autoPark of autoParks" [autoPark]="autoPark"></app-auto-park>-->
