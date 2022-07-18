@@ -4,5 +4,9 @@ const {API} = environment;
 
 export const urls = {
   cars: `${API}/cars`,
-  auto_parks: `${API}/autho_parks`
+  auto_parks: `${API}/autoparks`,
+  auth: `${API}/auth`,
+  users: `${API}/users`,
+
+
 }
