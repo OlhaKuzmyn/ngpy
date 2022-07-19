@@ -19,6 +19,8 @@ import { ActivateComponent } from './app-components/activate/activate.component'
 import { PostRegisterComponent } from './app-components/post-register/post-register.component';
 import {MainInterceptor} from "./main.interceptor";
 import {AuthService} from "./services/auth.service";
+import { AutoParkFullComponent } from './components/auto-park-full/auto-park-full.component';
+import {AutoParkResolver} from "./services/resolvers/auto-park.resolver";
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import {AuthService} from "./services/auth.service";
     CarComponent,
     HeaderComponent,
     ActivateComponent,
-    PostRegisterComponent
+    PostRegisterComponent,
+    AutoParkFullComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +52,8 @@ import {AuthService} from "./services/auth.service";
 
     },
     CarsAutoparksService,
-    AuthService
+    AuthService,
+    AutoParkResolver
   ],
   bootstrap: [AppComponent]
 })

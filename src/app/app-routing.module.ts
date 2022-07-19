@@ -8,11 +8,15 @@ import {RegisterComponent} from "./components/register/register.component";
 import {LoginComponent} from "./components/login/login.component";
 import {ActivateComponent} from "./app-components/activate/activate.component";
 import {PostRegisterComponent} from "./app-components/post-register/post-register.component";
+import {AutoParkFullComponent} from "./components/auto-park-full/auto-park-full.component";
+import {AutoParkResolver} from "./services/resolvers/auto-park.resolver";
 
 const routes: Routes = [
   {path: '', component: MainLayoutComponent, children: [
       {path: '', redirectTo: 'autoparks', pathMatch: 'full'},
-      {path: 'autoparks', component: AutoParksComponent},
+      {path: 'autoparks', component: AutoParksComponent, children:[
+        {path: ':id', component: AutoParkFullComponent, resolve: {data: AutoParkResolver}},
+        ]},
       {path: 'cars', component: CarsComponent},
       {path: 'register', component: RegisterComponent},
       {path: 'login', component: LoginComponent},

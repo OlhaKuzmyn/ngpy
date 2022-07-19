@@ -28,7 +28,7 @@ export class CarsAutoparksService {
     return this.httpClient.post<IAutoPark>(urls.auto_parks, aPark)
   }
 
-  getAutoParkByID(id:number): Observable<IAutoPark> {
+  getAutoParkByID(id:string): Observable<IAutoPark> {
     return this.httpClient.get<IAutoPark>(`${urls.auto_parks}/${id}`)
   }
 
