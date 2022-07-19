@@ -1,10 +1,13 @@
 <h1>Register</h1>
 <form [formGroup]="form">
   <div><label>Email: <input type="text" formControlName="email"></label></div>
-  <div><label>Password: <input type="text" formControlName="email"></label></div>
+  <span *ngIf="userEmailError">{{userEmailError}}</span>
+  <div><label>Password: <input type="text" formControlName="password"></label></div>
+  <div><label>Confirm Password: <input type="text" formControlName="confirmPassword"></label></div>
   <div><label>Name: <input type="text" formControlName="name"></label></div>
   <div><label>Surname: <input type="text" formControlName="surname"></label></div>
   <div><label>Age: <input type="number" formControlName="age"></label></div>
   <div><label>Phone: <input type="text" formControlName="phone"></label></div>
-  <button (click)="register()">Register</button>
+  <span *ngIf="form.errors">{{form.errors['notSame']}}</span>
+  <button [disabled]="form.invalid" (click)="register()">Register</button>
 </form>

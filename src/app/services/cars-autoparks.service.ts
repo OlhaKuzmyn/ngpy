@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {ICar} from "../interfaces";
+import {IAutoParkPage, ICar, ICarPage} from "../interfaces";
 import {urls} from "../constants/urls";
 import {IAutoPark} from "../interfaces";
 
@@ -12,16 +12,16 @@ export class CarsAutoparksService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getCars(params:HttpParams): Observable<ICar[]> {
-    return this.httpClient.get<ICar[]>(urls.cars, {params:params})
+  getCars(params:HttpParams): Observable<ICarPage> {
+    return this.httpClient.get<ICarPage>(urls.cars, {params:params})
   }
 
   // getAutoParks(params:HttpParams): Observable<IAutoPark[]> {
   //   return this.httpClient.get<IAutoPark[]>(urls.auto_parks, {params:params})
   // }
 
-  getAutoParks(): Observable<IAutoPark[]> {
-    return this.httpClient.get<IAutoPark[]>(urls.auto_parks)
+  getAutoParks(): Observable<IAutoParkPage> {
+    return this.httpClient.get<IAutoParkPage>(urls.auto_parks)
   }
 
   createAutoPark(aPark:IAutoPark): Observable<IAutoPark> {

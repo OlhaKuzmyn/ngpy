@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { AppRoutingModule } from './app-routing.module';
 import {RouterModule} from "@angular/router";
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
@@ -15,6 +15,10 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { CarComponent } from './components/car/car.component';
 import { HeaderComponent } from './app-components/header/header.component';
+import { ActivateComponent } from './app-components/activate/activate.component';
+import { PostRegisterComponent } from './app-components/post-register/post-register.component';
+import {MainInterceptor} from "./main.interceptor";
+import {AuthService} from "./services/auth.service";
 
 @NgModule({
   declarations: [
@@ -26,7 +30,9 @@ import { HeaderComponent } from './app-components/header/header.component';
     RegisterComponent,
     LoginComponent,
     CarComponent,
-    HeaderComponent
+    HeaderComponent,
+    ActivateComponent,
+    PostRegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +42,14 @@ import { HeaderComponent } from './app-components/header/header.component';
     ReactiveFormsModule
   ],
   providers: [
-    CarsAutoparksService
+    {
+      provide:HTTP_INTERCEPTORS,
+      multi: true,
+      useClass: MainInterceptor
+
+    },
+    CarsAutoparksService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

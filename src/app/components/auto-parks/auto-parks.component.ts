@@ -19,7 +19,7 @@ export class AutoParksComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.autoparksService.getAutoParks().subscribe(value => this.autoParks = value)
+    this.autoparksService.getAutoParks().subscribe(value => this.autoParks = value.data)
   }
 
   _createForm(): void {

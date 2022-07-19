@@ -9,7 +9,7 @@ import {urls} from "../constants/urls";
 })
 export class AuthService {
   private accessTokenKey = 'access'
-  private refreshTokenKey = 'refres'
+  private refreshTokenKey = 'refresh'
 
   constructor(private httpClient:HttpClient) { }
 
