@@ -13,8 +13,16 @@ export class AutoParkFullComponent implements OnInit {
   constructor(private activatedRoute:ActivatedRoute, private router:Router, private autoparksService:CarsAutoparksService) { }
 
   ngOnInit(): void {
-    this.activatedRoute.data.subscribe(({data})=>{
-      this.autoPark = data
+    this.activatedRoute.params.subscribe(({id})=>{
+      const state = this.router.getCurrentNavigation()?.extras?.state?.['autoPark'] as IAutoPark;
+      if (state) {
+        this.autoPark = state
+      } else {
+        this.activatedRoute.data.subscribe(({data})=>{
+          this.autoPark = data
+        })
+        // this.autoparksService.getAutoParkByID(id).subscribe(value => this.autoPark = value)
+      }
     })
   }
 
