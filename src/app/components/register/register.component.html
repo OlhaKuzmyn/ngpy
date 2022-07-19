@@ -1,0 +1,10 @@
+<h1>Register</h1>
+<form [formGroup]="form">
+  <div><label>Email: <input type="text" formControlName="email"></label></div>
+  <div><label>Password: <input type="text" formControlName="email"></label></div>
+  <div><label>Name: <input type="text" formControlName="name"></label></div>
+  <div><label>Surname: <input type="text" formControlName="surname"></label></div>
+  <div><label>Age: <input type="number" formControlName="age"></label></div>
+  <div><label>Phone: <input type="text" formControlName="phone"></label></div>
+  <button (click)="register()">Register</button>
+</form>

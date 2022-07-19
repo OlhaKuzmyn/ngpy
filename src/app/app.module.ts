@@ -11,6 +11,10 @@ import { CarsComponent } from './components/cars/cars.component';
 import {CarsAutoparksService} from "./services";
 import { AutoParkComponent } from './components/auto-park/auto-park.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
+import { CarComponent } from './components/car/car.component';
+import { HeaderComponent } from './app-components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,11 @@ import {ReactiveFormsModule} from "@angular/forms";
     MainLayoutComponent,
     AutoParksComponent,
     CarsComponent,
-    AutoParkComponent
+    AutoParkComponent,
+    RegisterComponent,
+    LoginComponent,
+    CarComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
