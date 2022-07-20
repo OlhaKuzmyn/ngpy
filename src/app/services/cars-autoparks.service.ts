@@ -12,19 +12,12 @@ export class CarsAutoparksService {
 
   constructor(private httpClient: HttpClient) { }
 
-  // getCars(params:HttpParams): Observable<ICarPage> {
-  //   return this.httpClient.get<ICarPage>(urls.cars, {params:params})
-  // }
-  getCars(): Observable<ICarPage> {
-    return this.httpClient.get<ICarPage>(urls.cars)
+  getCars(params:HttpParams): Observable<ICarPage> {
+    return this.httpClient.get<ICarPage>(urls.cars, {params:params})
   }
 
-  // getAutoParks(params:HttpParams): Observable<IAutoPark[]> {
-  //   return this.httpClient.get<IAutoPark[]>(urls.auto_parks, {params:params})
-  // }
-
-  getAutoParks(): Observable<IAutoParkPage> {
-    return this.httpClient.get<IAutoParkPage>(urls.auto_parks)
+  getAutoParks(params:HttpParams): Observable<IAutoParkPage> {
+    return this.httpClient.get<IAutoParkPage>(urls.auto_parks, {params:params})
   }
 
   createAutoPark(aPark:IAutoPark): Observable<IAutoPark> {
