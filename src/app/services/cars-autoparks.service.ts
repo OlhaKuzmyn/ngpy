@@ -12,8 +12,11 @@ export class CarsAutoparksService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getCars(params:HttpParams): Observable<ICarPage> {
-    return this.httpClient.get<ICarPage>(urls.cars, {params:params})
+  // getCars(params:HttpParams): Observable<ICarPage> {
+  //   return this.httpClient.get<ICarPage>(urls.cars, {params:params})
+  // }
+  getCars(): Observable<ICarPage> {
+    return this.httpClient.get<ICarPage>(urls.cars)
   }
 
   // getAutoParks(params:HttpParams): Observable<IAutoPark[]> {
@@ -42,6 +45,18 @@ export class CarsAutoparksService {
 
   createCar(id:number, car:ICar): Observable<ICar> {
     return this.httpClient.post<ICar>(`${urls.auto_parks}/${id}/car`, car)
+  }
+
+  getCarById(id:number): Observable<ICar> {
+    return this.httpClient.get<ICar>(`${urls.cars}/${id}`)
+  }
+
+  updateCarById(id:number, car: Partial<ICar>): Observable<ICar> {
+    return this.httpClient.patch<ICar>(`${urls.cars}/${id}`, car)
+  }
+
+  deleteCarById(id:number): Observable<void> {
+    return this.httpClient.delete<void>(`${urls.cars}/${id}`)
   }
 
 

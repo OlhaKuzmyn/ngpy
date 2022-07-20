@@ -1,1 +1,13 @@
-<p>car works!</p>
+<form *ngIf="showCarForm" [formGroup]="form">Add Car to AutoPark
+    <div><label>brand: <input type="text" formControlName="brand"></label></div>
+    <div><label>price: <input type="number" formControlName="price"></label></div>
+    <div><label>Year: <input type="number" formControlName="year"></label></div>
+    <button (click)="updateCar()">Update</button>
+</form>
+
+<p>ID: {{car.id}}</p>
+<h3>Brand: {{car.brand}}</h3>
+<p>Price: {{car.price}}</p>
+<p>Year: {{car.year}}</p>
+<button (click)="showCarFormClick()">Update</button>
+<button (click)="deleteCar()">Delete</button>

@@ -1,4 +1,20 @@
 <h1>{{autoPark.name}}</h1>
+
+<button (click)="showFormClick()">Change name</button>
+<button (click)="deleteAutoPark()">Delete</button>
+<button (click)="showCarFormClick()">Add Car</button>
+
+<form *ngIf="showForm" [formGroup]="form">
+  <div><label>Name: <input type="text" formControlName="name"></label></div>
+  <button (click)="updateName()">Update</button>
+</form>
+
+  <form *ngIf="showCarForm" [formGroup]="carForm">Add Car to AutoPark
+    <div><label>brand: <input type="text" formControlName="brand"></label></div>
+    <div><label>price: <input type="number" formControlName="price"></label></div>
+    <div><label>Year: <input type="number" formControlName="year"></label></div>
+    <button (click)="addCar()">Add car</button>
+</form>
 <p>Cars:</p>
 <div *ngFor="let car of autoPark.cars">
   <p>ID: {{car.id}}</p>

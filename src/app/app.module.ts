@@ -21,6 +21,7 @@ import {MainInterceptor} from "./main.interceptor";
 import {AuthService} from "./services/auth.service";
 import { AutoParkFullComponent } from './components/auto-park-full/auto-park-full.component';
 import {AutoParkResolver} from "./services/resolvers/auto-park.resolver";
+import { ResetPasswordComponent } from './app-components/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import {AutoParkResolver} from "./services/resolvers/auto-park.resolver";
     HeaderComponent,
     ActivateComponent,
     PostRegisterComponent,
-    AutoParkFullComponent
+    AutoParkFullComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,
