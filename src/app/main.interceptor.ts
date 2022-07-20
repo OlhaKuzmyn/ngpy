@@ -50,7 +50,7 @@ export class MainInterceptor implements HttpInterceptor {
           this.isRefreshing = false
           this.authService.deleteToken();
           this.router.navigate(['login']).then()
-          return throwError(() => new Error('token is invalid or expired'))
+          return throwError(() => new Error('Token is invalid or expired'))
         })
       )
     }

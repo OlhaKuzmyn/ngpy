@@ -1,0 +1,7 @@
+<h1>Add Avatar</h1>
+<form [formGroup]="form">
+  <div><label>Choose avatar: <input type="file" formControlName="avatar"></label></div>
+<!--                                    (change)="handleFileInput($event.target.files)" -->
+<!--  ></label></div>-->
+  <button (click)="saveAvatar()">Save</button>
+</form>

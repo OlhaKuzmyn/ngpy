@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {IAutoPark, ICar} from "../../interfaces";
+import {IAutoPark} from "../../interfaces";
 import {CarsAutoparksService} from "../../services";
 import {FormControl, FormGroup} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -15,6 +15,8 @@ export class AutoParksComponent implements OnInit {
   form: FormGroup
   autoParkForUpdate: IAutoPark | null
   page: number = 1
+
+
   constructor(private autoparksService:CarsAutoparksService, private activatedRoute:ActivatedRoute, private router:Router) {
     this._createForm()
   }
@@ -56,4 +58,6 @@ export class AutoParksComponent implements OnInit {
       {relativeTo: this.activatedRoute, queryParams: {page: this.page -= 1}}
     ).then()
   }
+
+
 }

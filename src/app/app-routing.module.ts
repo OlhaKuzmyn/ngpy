@@ -12,6 +12,7 @@ import {AutoParkFullComponent} from "./components/auto-park-full/auto-park-full.
 import {AutoParkResolver} from "./services/resolvers/auto-park.resolver";
 import {RecoverEmailComponent} from "./app-components/recover-email/recover-email.component";
 import {ResetPasswordComponent} from "./app-components/reset-password/reset-password.component";
+import {AddAvatarComponent} from "./components/add-avatar/add-avatar.component";
 
 const routes: Routes = [
   {path: '', component: MainLayoutComponent, children: [
@@ -25,7 +26,8 @@ const routes: Routes = [
       {path: 'postregister', component: PostRegisterComponent},
       {path: 'activate/:token', component: ActivateComponent},
       {path: 'resetpassword', component: RecoverEmailComponent},
-      {path: 'reset/:token', component: ResetPasswordComponent}
+      {path: 'reset/:token', component: ResetPasswordComponent},
+      {path: 'addavatar', component:AddAvatarComponent}
     ]}
 ]
 

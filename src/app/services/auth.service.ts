@@ -34,8 +34,6 @@ export class AuthService {
     )
   }
 
-  //Partial<IUser>
-
   recoveryEmail(email: string): Observable<void> {
     return this.httpClient.post<void>(`${urls.auth}/checkemail`,email)
   }
@@ -67,6 +65,10 @@ export class AuthService {
     return !!localStorage.getItem(this.accessTokenKey)
   }
 
+  addAvatar(avatar:File): Observable<void> {
+    return this.httpClient.put<void>(`${urls.users}/avatars`, avatar)
+
+  }
 
 }
 
