@@ -10,6 +10,7 @@ import {ActivateComponent} from "./app-components/activate/activate.component";
 import {PostRegisterComponent} from "./app-components/post-register/post-register.component";
 import {AutoParkFullComponent} from "./components/auto-park-full/auto-park-full.component";
 import {AutoParkResolver} from "./services/resolvers/auto-park.resolver";
+import {RecoverEmailComponent} from "./app-components/recover-email/recover-email.component";
 import {ResetPasswordComponent} from "./app-components/reset-password/reset-password.component";
 
 const routes: Routes = [
@@ -23,7 +24,8 @@ const routes: Routes = [
       {path: 'login', component: LoginComponent},
       {path: 'postregister', component: PostRegisterComponent},
       {path: 'activate/:token', component: ActivateComponent},
-      {path: 'resetpassword', component: ResetPasswordComponent}
+      {path: 'resetpassword', component: RecoverEmailComponent},
+      {path: 'reset/:token', component: ResetPasswordComponent}
     ]}
 ]
 

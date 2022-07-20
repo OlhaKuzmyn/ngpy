@@ -21,6 +21,7 @@ import {MainInterceptor} from "./main.interceptor";
 import {AuthService} from "./services/auth.service";
 import { AutoParkFullComponent } from './components/auto-park-full/auto-park-full.component';
 import {AutoParkResolver} from "./services/resolvers/auto-park.resolver";
+import { RecoverEmailComponent } from './app-components/recover-email/recover-email.component';
 import { ResetPasswordComponent } from './app-components/reset-password/reset-password.component';
 
 @NgModule({
@@ -37,6 +38,7 @@ import { ResetPasswordComponent } from './app-components/reset-password/reset-pa
     ActivateComponent,
     PostRegisterComponent,
     AutoParkFullComponent,
+    RecoverEmailComponent,
     ResetPasswordComponent
   ],
   imports: [

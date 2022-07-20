@@ -1,0 +1,7 @@
+<h1>Reset the password</h1>
+<p>Please provide email, you are registered with</p>
+<p>then check your email for a recovery link</p>
+<form [formGroup]="form">
+  <div><label>Email: <input type="text" formControlName="email"></label></div>
+  <button (click)="recoverPassword()">Send</button>
+</form>
