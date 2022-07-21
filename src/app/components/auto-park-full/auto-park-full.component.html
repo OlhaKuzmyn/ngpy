@@ -1,4 +1,7 @@
 <h1>{{autoPark.name}}</h1>
+<ul>Owners:
+  <li *ngFor="let owner of autoPark.owners">{{owner.email}}</li>
+</ul>
 
 <button (click)="showFormClick()">Change name</button>
 <button (click)="deleteAutoPark()">Delete</button>

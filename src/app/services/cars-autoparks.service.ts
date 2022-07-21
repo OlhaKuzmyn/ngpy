@@ -52,5 +52,9 @@ export class CarsAutoparksService {
     return this.httpClient.delete<void>(`${urls.cars}/${id}`)
   }
 
+  // addOwner(aId: number, uId:number): Observable<void> {
+  //   return this.httpClient.patch<void>(`${urls.auto_parks}`)
+  // }
+
 
 }
