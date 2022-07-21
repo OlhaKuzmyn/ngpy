@@ -24,9 +24,9 @@ export class AddAvatarComponent implements OnInit {
     })
   }
 
-  saveAvatar() {
-    this.authService.addAvatar(this.form.value).subscribe()
-  }
+  // saveAvatar() {
+  //   this.authService.addAvatar(this.form.value).subscribe()
+  // }
 
   // handleFileInput(files: FileList) {
   //   this.avatar = files.item(0)
