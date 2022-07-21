@@ -27,7 +27,7 @@ const routes: Routes = [
       {path: 'activate/:token', component: ActivateComponent},
       {path: 'resetpassword', component: RecoverEmailComponent},
       {path: 'reset/:token', component: ResetPasswordComponent},
-      {path: 'addavatar', component:AddAvatarComponent}
+      // {path: 'addavatar', component:AddAvatarComponent}
     ]}
 ]
 
