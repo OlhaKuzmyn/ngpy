@@ -12,7 +12,7 @@ import {HttpParams} from "@angular/common/http";
 export class CarsComponent implements OnInit {
   cars: ICar[]
   page: number = 1
-  // priceLess: number
+  priceLess: number
   tot_pages: number
   tot_results: number
   constructor(private carService:CarsAutoparksService, private activatedRoute:ActivatedRoute, private router:Router) { }
@@ -23,9 +23,10 @@ export class CarsComponent implements OnInit {
       if (value['page']!== undefined) {
         this.page = +value['page']
         params = new HttpParams().set('page', this.page)
-        // if (this.priceLess) {
-        //   params = new HttpParams().set('price_lt', this.priceLess)
-        // }
+        if (value['price_lt']) {
+          this.priceLess = +value['price_lt']
+          params = new HttpParams().set('price_lt', this.priceLess)
+        }
       }
       this.carService.getCars(params).subscribe(value => {
         this.cars = value.data
@@ -37,34 +38,44 @@ export class CarsComponent implements OnInit {
   }
 
   previous() {
+    if(this.priceLess) {
+      this.router.navigate([],
+      {relativeTo: this.activatedRoute, queryParams: {page: this.page -= 1, price_lt: this.priceLess}}
+    ).then()
+    }
     this.router.navigate([],
       {relativeTo: this.activatedRoute, queryParams: {page: this.page -= 1}}
     ).then()
   }
 
   next() {
+    if(this.priceLess) {
+      this.router.navigate([],
+      {relativeTo: this.activatedRoute, queryParams: {page: this.page += 1, price_lt: this.priceLess}}
+    ).then()
+    }
     this.router.navigate([],
       {relativeTo: this.activatedRoute, queryParams: {page: this.page += 1}}
     ).then()
   }
 
-  // price_lt() {
-  //   this.router.navigate([],
-  //     {relativeTo: this.activatedRoute, queryParams:{page: this.page, price_lt: 10000}}
-  //   ).then()
-  // }
-  //
-  // plusThsd() {
-  //   this.router.navigate([],
-  //     {relativeTo: this.activatedRoute, queryParams:{page: this.page, price_lt: this.priceLess +=1000}}
-  //   ).then()
-  //
-  // }
-  //
-  // minusThsd() {
-  //   this.router.navigate([],
-  //     {relativeTo: this.activatedRoute, queryParams:{page: this.page, price_lt: this.priceLess -=1000}}
-  //   ).then()
-  //
-  // }
+  price_lt() {
+    this.router.navigate([],
+      {relativeTo: this.activatedRoute, queryParams:{page: this.page, price_lt: 70000}}
+    ).then()
+  }
+
+  plusThsd() {
+    this.router.navigate([],
+      {relativeTo: this.activatedRoute, queryParams:{page: this.page, price_lt: this.priceLess +=1000}}
+    ).then()
+
+  }
+
+  minusThsd() {
+    this.router.navigate([],
+      {relativeTo: this.activatedRoute, queryParams:{page: this.page, price_lt: this.priceLess -=1000}}
+    ).then()
+
+  }
 }
