@@ -9,7 +9,8 @@ import {FormControl, FormGroup} from "@angular/forms";
 })
 export class AddAvatarComponent implements OnInit {
   form: FormGroup
-  avatar: File | null
+  // avatar: File | null
+  avatar: File
   constructor(private authService:AuthService) {
     this._createForm()
   }
@@ -29,5 +30,19 @@ export class AddAvatarComponent implements OnInit {
 
   // handleFileInput(files: FileList) {
   //   this.avatar = files.item(0)
+  //
   // }
+  // handleFileInput(event: Event) {
+  //   this.avatar = event.target?.files[0]
+  // }
+  handleFileInput(event: Event) {
+    const element = event.currentTarget as HTMLInputElement;
+    let fileList: FileList | null = element.files;
+    if (fileList) {
+      console.log(fileList)
+      this.avatar = fileList[0]
+      console.log(this.avatar);
+      this.authService.addAvatar(this.avatar).subscribe()
+    }
+  }
 }
