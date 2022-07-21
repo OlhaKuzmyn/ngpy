@@ -53,7 +53,7 @@ export class CarsAutoparksService {
   }
 
   // addOwner(aId: number, uId:number): Observable<void> {
-  //   return this.httpClient.patch<void>(`${urls.auto_parks}`)
+  //   return this.httpClient.patch<void>(`${urls.auto_parks}/${aId}/add_owner/${uId}`, void)
   // }
 
 
